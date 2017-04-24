@@ -12,4 +12,6 @@
 
 + (instancetype)sharedHelper;
 
+- (void)recordBegin;
+- (void)recordStop;
 @end
