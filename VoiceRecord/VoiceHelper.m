@@ -22,6 +22,9 @@
 
 @property (nonatomic, strong) NSString *amrPath;
 
+@property (nonatomic, strong) AVAudioPlayer *voicePlayer;
+
+
 
 @end
 
@@ -61,6 +64,14 @@ static VoiceHelper *_helper;
     NSString *directory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *fileDirectory = [[[directory stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:type] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     return fileDirectory;
+}
+
+#pragma mark - player
+- (AVAudioPlayer *)voicePlayer {
+    if (!_voicePlayer) {
+        _voicePlayer = [[AVAudioPlayer alloc] init];
+    }
+    return _voicePlayer;
 }
 
 
